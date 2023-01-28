@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_new/responsive/mobile_screen_layout.dart';
 import 'package:flutter_new/responsive/web_screen_layout.dart';
 import 'package:flutter_new/screens/login_screen.dart';
+import 'package:flutter_new/screens/signup_screen.dart';
 import 'package:flutter_new/utils/colors.dart';
 import 'package:flutter_new/responsive/responsive_layout_screen.dart';
 
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       // home: const ResponsiveLayout(
       //     mobileScreenLayout: MobileScreenLayout(),
       //     webScreenLayout: WebScreenLayout()));
-      home: LoginScreen(),
+      home: SignUpScreen(),
     );
   }
 }
