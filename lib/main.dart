@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_new/responsive/mobile_screen_layout.dart';
 import 'package:flutter_new/responsive/web_screen_layout.dart';
+import 'package:flutter_new/screens/login_screen.dart';
 import 'package:flutter_new/utils/colors.dart';
 import 'package:flutter_new/responsive/responsive_layout_screen.dart';
 
@@ -31,12 +32,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: mobileBackgroundColor,
-        ),
-        home: const ResponsiveLayout(
-            mobileScreenLayout: MobileScreenLayout(),
-            webScreenLayout: WebScreenLayout()));
+      title: 'Flutter Demo',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: mobileBackgroundColor,
+      ),
+      // home: const ResponsiveLayout(
+      //     mobileScreenLayout: MobileScreenLayout(),
+      //     webScreenLayout: WebScreenLayout()));
+      home: LoginScreen(),
+    );
   }
 }
