@@ -2,6 +2,10 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_new/resources/auth_methods.dart';
+import 'package:flutter_new/responsive/mobile_screen_layout.dart';
+import 'package:flutter_new/responsive/responsive_layout_screen.dart';
+import 'package:flutter_new/responsive/web_screen_layout.dart';
+import 'package:flutter_new/screens/login_screen.dart';
 import 'package:flutter_new/utils/colors.dart';
 import 'package:flutter_new/utils/utils.dart';
 import 'package:flutter_new/widgets/text_field_input.dart';
@@ -59,8 +63,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (res != 'success') {
       showSnackBar(res, context);
     } else {
-      //
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const ResponsiveLayout(
+              mobileScreenLayout: MobileScreenLayout(),
+              webScreenLayout: WebScreenLayout())));
     }
+  }
+
+  void navigateToLogin() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   @override
@@ -155,7 +167,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
               //button login
               InkWell(
-                onTap: signUpUser,
+                onTap: navigateToLogin,
                 child: Container(
                   child: _isLoading
                       ? const Center(
@@ -163,7 +175,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: primaryColor,
                           ),
                         )
-                      : const Text('Log in'),
+                      : const Text('Login'),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
